@@ -28,7 +28,7 @@ function VPAIDIntegrator(player, settings) {
   this.player = player;
   this.containerEl = createVPAIDContainerEl(player);
   this.options = {
-    responseTimeout: 5000,
+    responseTimeout: settings.adCancelTimeout * 0.8,
     VPAID_VERSION: '2.0'
   };
   this.settings = settings;
