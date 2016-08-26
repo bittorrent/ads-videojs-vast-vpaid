@@ -7,7 +7,7 @@
   "description": "VAST plugin to use with video.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MailOnline/videojs-vast-vpaid"
+    "url": "https://github.com/bittorrent/videojs-vast-vpaid"
   },
   "main": [
     "bin/videojs-vast-vpaid.min.js",
@@ -34,7 +34,7 @@
     "frontend/demo/*"
   ],
   "dependencies": {
-    "VPAIDFLASHClient": "^1.0.2",
+    "VPAIDFLASHClient": "https://github.com/bittorrent/VPAIDFLASHClient/tarball/master",
     "VPAIDHTML5Client": "^0.1.14"
   },
   "devDependencies": {
