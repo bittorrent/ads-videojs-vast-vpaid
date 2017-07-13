@@ -103,7 +103,7 @@ describe("VPAIDIntegrator", function () {
   });
 
   it("must return an instance of itself", function () {
-    assert.instanceOf(new VPAIDIntegrator(player), VPAIDIntegrator);
+    assert.instanceOf(new VPAIDIntegrator(player, {adCancelTimeout: 5000}), VPAIDIntegrator);
   });
 
   describe("instance", function () {
