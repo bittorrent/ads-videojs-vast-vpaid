@@ -219,7 +219,7 @@ VASTClient.prototype._requestVASTXml = function requestVASTXml(adTagUrl, callbac
     } else {
       logger.info ("requesting adTagUrl: " + adTagUrl);
       http.get(adTagUrl, requestHandler, {
-        withCredentials: true
+        withCredentials: false
       });
     }
   } catch (e) {

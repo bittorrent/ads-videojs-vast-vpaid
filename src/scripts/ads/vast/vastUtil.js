@@ -140,7 +140,11 @@ var vastUtil = {
   ],
 
   isVPAID: function isVPAIDMediaFile(mediaFile) {
-    return !!mediaFile && mediaFile.apiFramework === 'VPAID';
+    return (
+      !!mediaFile &&
+      typeof mediaFile.apiFramework === 'string' &&
+      mediaFile.apiFramework.toUpperCase() === 'VPAID'
+    );
   },
 
   findSupportedVPAIDTech: function findSupportedVPAIDTech(mimeType) {
