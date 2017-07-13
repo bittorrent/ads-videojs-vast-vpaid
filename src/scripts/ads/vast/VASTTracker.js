@@ -22,7 +22,8 @@ VASTTracker.prototype.initialize = function(assetURI, vastResponse) {
   this.quartiles = {
     firstQuartile: {tracked: false, time: Math.round(25 * vastResponse.duration) / 100},
     midpoint: {tracked: false, time: Math.round(50 * vastResponse.duration) / 100},
-    thirdQuartile: {tracked: false, time: Math.round(75 * vastResponse.duration) / 100}
+    thirdQuartile: {tracked: false, time: Math.round(75 * vastResponse.duration) / 100},
+    complete: {tracked: false, time: vastResponse.duration}
   };
 };
 
@@ -107,6 +108,7 @@ VASTTracker.prototype.trackProgress = function trackProgress(newProgressInMs) {
     var firstQuartile = that.quartiles.firstQuartile;
     var midpoint = that.quartiles.midpoint;
     var thirdQuartile = that.quartiles.thirdQuartile;
+    var complete = that.quartiles.complete;
 
     if (!firstQuartile.tracked) {
       trackQuartile('firstQuartile', progress);
@@ -114,6 +116,8 @@ VASTTracker.prototype.trackProgress = function trackProgress(newProgressInMs) {
       trackQuartile('midpoint', progress);
     } else if (!thirdQuartile.tracked){
       trackQuartile('thirdQuartile', progress);
+    } else if (!complete.tracked) {
+      trackQuartile('complete', progress);
     }
 
     /*** Local function ***/
@@ -188,7 +192,8 @@ VASTTracker.prototype.trackProgress = function trackProgress(newProgressInMs) {
 [
   'firstQuartile',
   'midpoint',
-  'thirdQuartile'
+  'thirdQuartile',
+  'complete'
 ].forEach(function (quartile) {
     VASTTracker.prototype['track' + utilities.capitalize(quartile)] = function () {
       this.quartiles[quartile].tracked = true;

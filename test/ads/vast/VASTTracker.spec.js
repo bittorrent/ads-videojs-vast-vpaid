@@ -82,7 +82,8 @@ describe("VASTTracker", function () {
       assert.deepEqual(tracker.quartiles, {
         firstQuartile: { tracked: false, time: 2500},
         midpoint:{ tracked: false, time: 5000 },
-        thirdQuartile: { tracked: false, time: 7500 }
+        thirdQuartile: { tracked: false, time: 7500 },
+        complete: { tracked: false, time: 10000 }
       });
     });
 

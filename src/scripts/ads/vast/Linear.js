@@ -16,7 +16,7 @@ function Linear(linearJTree) {
   }
 
   //Required Elements
-  this.duration = parsers.duration(xml.keyValue(linearJTree.duration));
+  this.duration = parsers.duration(xml.keyValue(linearJTree.duration)) || 0;
   this.mediaFiles = parseMediaFiles(linearJTree.mediaFiles && linearJTree.mediaFiles.mediaFile);
 
   //Optional fields
